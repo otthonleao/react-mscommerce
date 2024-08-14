@@ -1,8 +1,12 @@
-import './App.css'
+import Catalog from './routes/Catalog'
+import ProductDetails from './routes/ProductDetails'
 
 function App() {
   return (
-    <h1>Muraton Store</h1>
+    <>
+      <ProductDetails />
+    </>
+
   )
 }
 
