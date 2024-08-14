@@ -37,7 +37,7 @@ export default function ProductDetails() {
                 <section id="card__section" className="container">
                     <ProductDetailsCard product={ product }/>
                     <div className="card__btn-container">
-                        <ButtonInverse />
+                        <ButtonInverse text="Início"/>
                         <ButtonPrimary text="Comprar"/>
                     </div>
 
