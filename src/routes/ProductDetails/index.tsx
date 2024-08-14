@@ -35,10 +35,10 @@ export default function ProductDetails() {
 
             <main>
                 <section id="card__section" className="container">
-                    <ProductDetailsCard product={ product }/>
+                    <ProductDetailsCard product={product} />
                     <div className="card__btn-container">
-                        <ButtonInverse text="Início"/>
-                        <ButtonPrimary text="Comprar"/>
+                        <ButtonInverse text="Início" />
+                        <ButtonPrimary text="Comprar" />
                     </div>
 
                 </section>
