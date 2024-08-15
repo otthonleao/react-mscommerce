@@ -4,6 +4,7 @@ import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
 import * as productService from '../../../services/product-service';
 import './styles.css';
+import { Link } from "react-router-dom";
 
 export default function ProductDetails() {
 
@@ -19,10 +20,14 @@ export default function ProductDetails() {
                         product && // Só vai renderizar se o objeto product não for undefined
                         <ProductDetailsCard product={product} />
                     }
-                    
-                    <div className="card__btn-container">
-                        <ButtonInverse text="Início" />
-                        <ButtonPrimary text="Comprar" />
+
+                    <div className="general-mt20 ">
+                        <Link to="/" >
+                            <ButtonInverse text="Início" />
+                        </Link>
+                        <Link to="/">
+                            <ButtonPrimary text="Comprar" />
+                        </Link>
                     </div>
 
                 </section>
