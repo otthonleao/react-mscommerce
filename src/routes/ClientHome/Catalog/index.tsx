@@ -1,9 +1,9 @@
-import HeaderClient from '../../components/HeaderClient'
+import ButtonNextPage from '../../../components/ButtonNextPage';
+import CatalodCard from '../../../components/CatalogCard';
+import SearchBar from '../../../components/SearchBar';
+import { ProductDTO } from '../../../models/product';
 import './styles.css'
-import SearchBar from '../../components/SearchBar';
-import CatalodCard from '../../components/CatalogCard';
-import ButtonNextPage from '../../components/ButtonNextPage';
-import { ProductDTO } from '../../models/product';
+
 
 const product: ProductDTO = {
     id: 2,
@@ -30,7 +30,6 @@ const product: ProductDTO = {
 export default function Catalog() {
     return (
         <>
-        <HeaderClient />
             <main>
                 <section id="catalogo__section" className="container">
                     <SearchBar />
