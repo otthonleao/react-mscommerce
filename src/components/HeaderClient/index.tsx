@@ -18,7 +18,7 @@ export default function HeaderClient() {
                         </div>
                     </div>
                     <div className="logged-user">
-                        <Link to="/login" >
+                        <Link to="/login">
                             <i className="fa-regular fa-circle-user"></i> Login
                         </Link>
                     </div>
