@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ButtonInverse from "../../../components/ButtonInverse";
 import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
@@ -11,6 +11,7 @@ import { ProductDTO } from "../../../models/product";
 export default function ProductDetails() {
 
     const params = useParams();
+    const navigate = useNavigate();
 
     const [product, setProduct] = useState<ProductDTO>();
     
@@ -20,6 +21,10 @@ export default function ProductDetails() {
             .then(response => { // O que vai ser feito quando a resposta da Promnisse for retornado com sucesso
                 console.log(response.data); // response.data Pega a lista que a promesse da API mandou como resposta
                 setProduct(response.data);
+        })
+        .catch(error => {
+            console.log(error.response.data);
+            navigate("/calalog");
         });
 
         // const prod = productService.findById(Number(params.productId));
@@ -36,6 +41,13 @@ export default function ProductDetails() {
                         product && // Só vai renderizar se o objeto product não for undefined
                         <ProductDetailsCard product={product} />
                     }
+
+                    {/* Caso não queira renderizar o erro para outra página use esse ternário ao invés do de cima */}
+                    {/* {
+                        product
+                        ? <ProductDetailsCard product={product} />
+                        : <div>ERROR 404 - Código Inválido</div>
+                    } */}
 
                     <div className="general-mt20 ">
                         <Link to="/" >
