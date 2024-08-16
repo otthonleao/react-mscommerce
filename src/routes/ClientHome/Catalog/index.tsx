@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import ButtonNextPage from '../../../components/ButtonNextPage';
 import CatalodCard from '../../../components/CatalogCard';
 import SearchBar from '../../../components/SearchBar';
-// import * as productService from '../../../services/product-service';
+import * as productService from '../../../services/product-service';
 import './styles.css';
 import { ProductDTO } from '../../../models/product';
-import axios from 'axios';
 
 export default function Catalog() {
 
@@ -13,7 +12,7 @@ export default function Catalog() {
     const [products, setProducts] = useState<ProductDTO[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/products?size=12") // O resultado dessa requisição é uma Promisse, então usamos o .then pra pegar esse resultado
+        productService.findAll()
             .then(response => { // O que vai ser feito quando a resposta da Promnisse for retornado com sucesso
                 setProducts(response.data.content);
             })

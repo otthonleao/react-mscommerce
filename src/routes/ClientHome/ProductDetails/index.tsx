@@ -2,12 +2,11 @@ import { useParams } from "react-router-dom";
 import ButtonInverse from "../../../components/ButtonInverse";
 import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
-// import * as productService from '../../../services/product-service';
+import * as productService from '../../../services/product-service';
 import './styles.css';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ProductDTO } from "../../../models/product";
-import axios from "axios";
 
 export default function ProductDetails() {
 
@@ -17,11 +16,9 @@ export default function ProductDetails() {
     
     useEffect(() => {
         // Chamada da API Backend
-        axios.get(`http://localhost:8080/products/${params.productId}`) // O resultado dessa requisição é uma Promisse, então usamos o .then pra pegar esse resultado
-            // O que vai ser feito quando a resposta da Promnisse for retornado com sucesso
-            .then(response => { 
-                // response.data Pega a lista que a promesse da API mandou como resposta
-                console.log(response.data);
+        productService.findById(Number(params.productId)) // productId é o que vem da rota e o cast de number é pq tudo que vem do http é string
+            .then(response => { // O que vai ser feito quando a resposta da Promnisse for retornado com sucesso
+                console.log(response.data); // response.data Pega a lista que a promesse da API mandou como resposta
                 setProduct(response.data);
         });
 

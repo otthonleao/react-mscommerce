@@ -1,5 +1,18 @@
-import { ProductDTO } from "../models/product";
+import axios from "axios";
+import { BASE_URL } from "../utils/system";
+// import { ProductDTO } from "../models/product";
 
+export function findAll() {
+    // O resultado dessa requisição é uma Promisse, então usamos o .then pra pegar esse resultado
+    return axios.get(`${BASE_URL}/products?size=12`);
+}
+
+export function findById(id: number) {
+    return axios.get(`${BASE_URL}/products/${id}`);
+}
+
+/*
+// Dados de quando não a API do backend
 export function findAll(): ProductDTO[] {
     return products;
 }
@@ -177,3 +190,4 @@ let products : ProductDTO[] = [
         ]
     }
 ]
+*/
