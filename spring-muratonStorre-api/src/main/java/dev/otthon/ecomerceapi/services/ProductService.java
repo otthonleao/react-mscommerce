@@ -2,6 +2,7 @@ package dev.otthon.ecomerceapi.services;
 
 import dev.otthon.ecomerceapi.dto.ProductDTO;
 import dev.otthon.ecomerceapi.entities.Product;
+import dev.otthon.ecomerceapi.exceptions.DatabaseException;
 import dev.otthon.ecomerceapi.exceptions.ResourceNotFoundException;
 import dev.otthon.ecomerceapi.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,13 +66,13 @@ public class ProductService {
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         if (!productRepository.existsById(id)) {
-            throw new RuntimeException("Product not found");
+            throw new ResourceNotFoundException("Product not found");
         }
 
         try {
             productRepository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
-            throw new RuntimeException("Integrity violation. This product has associated orders");
+            throw new DatabaseException("Integrity violation. This product has associated orders");
         }
 
     }
