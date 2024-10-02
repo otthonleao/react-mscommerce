@@ -1,4 +1,4 @@
-package dev.otthon.ecomerceapi.dto;
+package dev.otthon.ecomerceapi.dto.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
