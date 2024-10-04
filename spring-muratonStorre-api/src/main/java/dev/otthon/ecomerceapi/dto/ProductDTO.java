@@ -15,14 +15,14 @@ public class ProductDTO {
 
     private Long id;
 
-    @Size(min = 3, max = 100, message = "O nome do produto deve ter entre 3 e 100 caracteres")
-    @NotEmpty(message = "Campo obrigatório")
+    @Size(min = 3, max = 100, message = "{field.size.min3.max100}")
+    @NotEmpty(message = "{field.name.required}")
     private String name;
 
-    @Size(min = 15, message = "A descrição do produto deve ter no mínimo 15 caracteres")
+    @Size(min = 15, message = "{field.size.min15}")
     private String description;
 
-    @Positive(message = "O preço do produto deve ser um valor positivo")
+    @Positive(message = "{field.price.positive}")
     private Double price;
 
     private String imgUrl;
